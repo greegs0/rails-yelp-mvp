@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # config/routes.rb
+  resources :restaurants, only: [:index, :new, :create, :show] do
+    resources :reviews, only: [:create]
+  end
+  resources :reviews, only: [:destroy]
 end
